@@ -1,4 +1,4 @@
-# One-Pass Removal of k-th Node from End : HackerRank
+# Remove Consecutive Duplicates from Sorted Linked List : HackerRank
 
 import math
 import os
@@ -38,12 +38,10 @@ def print_singly_linked_list(node, sep):
 
 
 #
-# Complete the 'removeKthNodeFromEnd' function below.
+# Complete the 'deleteDuplicates' function below.
 #
 # The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
-# The function accepts following parameters:
-#  1. INTEGER_SINGLY_LINKED_LIST head
-#  2. INTEGER k
+# The function accepts INTEGER_SINGLY_LINKED_LIST head as parameter.
 #
 
 #
@@ -55,39 +53,27 @@ def print_singly_linked_list(node, sep):
 #
 #
 
-def removeKthNodeFromEnd(head, k):
+def deleteDuplicates(head):
     # Write your code here
-    # head = [1, 2, 3, 4, 5, 6, 7, 8, 9], k = 3 -> output = [1, 2, 3, 4, 5, 7, 8, 9]
-    start = head
-    prev = head
-    ahead = head
-    if head is None:
+    if head is None: # if list is empty
         return None
-    if k < 0:
+    if head.next is None: # if list only has one element
         return head
-    i = 0
+        
+    # head = [1, 2, 2, 2, 3, 4, 4, 5]
+    # output = [1, 2, 3, 4, 5]
     
-    while i < (k+1):
-        ahead = ahead.next
-        # print("i =", i)
-        if ahead is None and i == k:
-            return head.next
-        elif ahead is None:
-            return head
-        i+=1
-    while ahead is not None:
-        prev = start
-        start = start.next
-        ahead = ahead.next
-        # if ahead is not None:
-        #     print("prev: ", prev.data, " start: ", start.data, " ahead: ", ahead.data)
-        # else:
-        #     print("prev: ", prev.data, " start: ", start.data, " ahead: is None")
-        # print(" ")
-    prev.next = start.next
+    curr = head
+    hold = head
+    while curr is not None:
+        curr = curr.next
+        if curr is not None and hold.data == curr.data:
+            while curr is not None and hold.data == curr.data:
+                curr = curr.next
+        hold.next = curr
+        hold = curr
+        
     return head
-        
-        
     
     
 
@@ -100,9 +86,7 @@ if __name__ == '__main__':
         head_item = int(input().strip())
         head.insert_node(head_item)
 
-    k = int(input().strip())
-
-    result = removeKthNodeFromEnd(head.head, k)
+    result = deleteDuplicates(head.head)
 
     print_singly_linked_list(result, '\n')
     print()
