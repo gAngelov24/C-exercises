@@ -17,7 +17,7 @@ import sys
 
 def generateAngleBracketSequences(n):
     # Write your code here
-    results = []
+    results = [] 
 
     def backtrack(curr, open_count, close_count):
         if len(curr) == 2 * n:
