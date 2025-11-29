@@ -1,4 +1,4 @@
-#!/bin/python3
+# Two Sum : HackerRank
 
 import math
 import os
