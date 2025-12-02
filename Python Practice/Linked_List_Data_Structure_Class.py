@@ -1,4 +1,4 @@
-# 7. Linked List Data Structure Class
+# 7. Linked List Data Structure Class : w3resource
 # Write a Python program to create a class representing a linked list data structure. 
 # Include methods for displaying linked list data, inserting and deleting nodes.
 
