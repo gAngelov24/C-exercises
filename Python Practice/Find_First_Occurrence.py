@@ -1,4 +1,4 @@
-#!/bin/python3
+# Find First Occurrence : HackerRank
 
 import math
 import os
